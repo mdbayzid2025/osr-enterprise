@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Universal Polymer Industries Ltd',
+  title: 'OSR Enterprise',
   description: 'Leading manufacturer of bottle grade PET resin in Southeast Asia since 1992',
 };
 
