@@ -4,11 +4,6 @@ import Link from "next/link";
 import { ArrowRight, ShoppingCart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import img1 from "../app/public/drum1.jpg";
-import img2 from "../app/public/drum2.png";
-import img3 from "../app/public/drum3.png";
-import img4 from "../app/public/drum4.png";
-import img5 from "../app/public/drum5.jpg";
 import Image from "next/image";
 
 
@@ -20,7 +15,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img1,
+    image: "/drum1.jpg",
   },
   {
     id: 2,
@@ -28,7 +23,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img2,
+    image: "/drum2.png",
   },
   {
     id: 3,
@@ -36,7 +31,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img3,
+    image: "/drum3.png",
   },
   {
     id: 4,
@@ -44,7 +39,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img4,
+    image: "/drum4.png",
   },
   {
     id: 5,
@@ -52,7 +47,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img4,
+    image: "/drum1.png",
   },
   {
     id: 6,
@@ -60,7 +55,7 @@ const products = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     price: 100.00,
     rating: 5,
-    image: img1,
+    image: "/drum2.png",
   },
 ];
 
@@ -88,12 +83,12 @@ export default function Products() {
               href={`/products/${product.id}`}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
             >
-              <div className="aspect-square bg-gray-100 flex items-center justify-center text-8xl p-8 group-hover:scale-105 transition-transform duration-300">
+              <div className="relative aspect-square bg-gray-100 flex items-center justify-center text-8xl p-8 group-hover:scale-105 transition-transform duration-300">
                 {/* {product?.image} */}
-                <Image src={product?.image} className="!h-full !w-full object-cover" alt="image" />
+                <Image src={product?.image} fill className=" object-cover" alt="image" />
               </div>
-              <div className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
+              <div className="p-6 space-y-4 bg-slate-200">
+                <div className="flex items-center justify-between ">
                   <h3 className="text-xl font-bold text-gray-900">{product.name}</h3>
                   {/* <div className="flex gap-0.5">
                     {[...Array(product.rating)].map((_, i) => (

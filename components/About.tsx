@@ -3,6 +3,7 @@
 import { ArrowRight, Beaker, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -36,14 +37,15 @@ export default function About() {
             <p className="text-gray-600 text-lg leading-relaxed">
               Founded with a vision to redefine innovation in the chemical industry, OSR Enterprise is a trusted name in the production and supply of high-quality industrial and specialty chemicals. With years of expertise, we focus on delivering sustainable, efficient, and cost-effective chemical solutions to clients across multiple sectors including manufacturing, agriculture, construction, and home care.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mt-4">
+            <p className="text-gray-600 text-lg leading-relaxed mt-4 pb-10">
               At OSR Enterprise, we believe in combining science with responsibility. Our products are developed using eco-conscious processes that ensure safety, performance, and environmental protection. Backed by modern technology, a skilled R&D team, and a customer-first approach, we continuously strive to exceed expectations through reliability and innovation.
             </p>           
 
-            <Button className="bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg group">
+            <Link href="/certificates"><Button className="bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg group">
               Learn More
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
+            </Link>
           </div>
         </div>
       </div>

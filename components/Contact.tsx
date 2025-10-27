@@ -28,7 +28,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* 🌍 Map Section */}
           <div className="relative rounded-3xl shadow-lg border border-gray-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.4468349813983!2d90.5109634!3d23.695732200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b79cb42ddedb%3A0x3d6752ff79e884a4!2sBhumipolli%20lake%20view%20tower!5e0!3m2!1sen!2sbd!4v1761505980902!5m2!1sen!2sbd" width="600" height="530" style={{border: 'none'}} loading="lazy" ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456.6814618220055!2d90.51752815913223!3d23.69555854986421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b700331975cb%3A0x4f2b3fbc4ae1bee0!2sShiddirgonj%2C%20Narayanganj!5e0!3m2!1sen!2sbd!4v1761585986897!5m2!1sen!2sbd" width="600" height="530" style={{border: 'none'}} loading="lazy" ></iframe>            
           </div>
 
           {/* 📩 Contact Form */}

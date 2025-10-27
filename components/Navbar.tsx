@@ -12,16 +12,16 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
+          <Link href="/"><div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg flex items-center justify-center">
               <div className="w-6 h-6 bg-white rounded-sm"></div>
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-gray-900">Universal Polymer</span>
-              <span className="text-xs text-gray-500">Industries Ltd</span>
+              <span className="text-lg font-bold text-gray-900">OSR</span>
+              <span className="text-xs text-gray-500">Enterprise</span>
             </div>
           </div>
-
+          </Link>
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-gray-900 hover:text-teal-500 font-medium transition-colors">
               Home
@@ -35,22 +35,22 @@ export default function Navbar() {
             <Link href="/certificates" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Certificates
             </Link>
-            <Link href="#gallery" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
+            {/* <Link href="#gallery" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Gallery
-            </Link>
+            </Link> */}
             <Link href="#contact" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Contact Us
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          {/* <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="icon" className="rounded-full">
               <Search className="h-5 w-5 text-gray-600" />
             </Button>
             <Button className="bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full px-6">
               Search
             </Button>
-          </div>
+          </div> */}
 
           <button
             className="md:hidden p-2"
@@ -96,13 +96,13 @@ export default function Navbar() {
             >
               Certificates
             </Link>
-            <Link
+            {/* <Link
               href="#gallery"
               className="block text-gray-600 hover:text-teal-500 font-medium py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Gallery
-            </Link>
+            </Link> */}
             <Link
               href="#contact"
               className="block text-gray-600 hover:text-teal-500 font-medium py-2"

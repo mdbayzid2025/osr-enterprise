@@ -7,7 +7,9 @@ import { certificates } from "@/lib/certificates";
 import { Award, Calendar, FileText, Shield, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import certificateImg from "../../app/public/certificate/trade licence.jpg";
+import certificateImg1 from "../../app/public/certificate/cert3.jpeg";
+import certificateImg2 from "../../app/public/certificate/cert4.jpeg";
+import certificateImg3 from "../../app/public/certificate/cert6.jpeg";
 import Image from "next/image";
 
 export default function CertificatesPage() {
@@ -134,7 +136,7 @@ export default function CertificatesPage() {
           </div> */}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {filteredCertificates.map((certificate, index) => (
+            {filteredCertificates?.map((certificate, index) => (
               <div
                 key={certificate.id}
                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"
@@ -146,7 +148,8 @@ export default function CertificatesPage() {
                 <div className="relative aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div> */}
                   <div className="absolute inset-0 flex items-center justify-center text-9xl  group-hover:scale-110 transition-transform duration-500">
-                    <Image src={certificateImg}  alt="certificate"/>
+                    <Image src={certificate?.imageUrl} fill  alt="certificate"/>
+                    {/* <Image src={certificateImg2} fill  alt="certificate"/> */}
                   </div>
                   {/* <div className="absolute top-4 right-4 z-20">
                     <div className={`px-4 py-2 rounded-full text-sm font-semibold border-2 backdrop-blur-sm flex items-center gap-2 ${getTypeColor(certificate.type)}`}>
@@ -179,7 +182,7 @@ export default function CertificatesPage() {
                   </div> */}
 
                   <Button className="w-full bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full group-hover:shadow-lg transition-all">
-                    View Details
+                    Preview
                   </Button>
                 </div>
               </div>
@@ -220,9 +223,9 @@ export default function CertificatesPage() {
             </div>
 
             <div className="p-6 space-y-6">
-              <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl  flex items-center justify-center">
+              <div className="relative aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl  flex items-center justify-center">
                 {/* <div className="text-9xl">📜</div> */}
-                <Image src={certificateImg} alt="certficate"/>
+                <Image src={selectedCert?.imageUrl} fill alt="certficate"/>
               </div>
 
               <div className="hidden space-y-4">

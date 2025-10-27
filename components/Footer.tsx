@@ -20,12 +20,12 @@ export default function Footer() {
                 <div className="w-6 h-6 bg-white rounded-sm"></div>
               </div>
               <div className="flex flex-col leading-tight">
-                <span className="text-lg font-bold">Universal Polymer</span>
-                <span className="text-xs text-gray-400">Industries Ltd</span>
+                <span className="text-lg font-bold">OSR </span>
+                <span className="text-xs text-gray-400">Enterprise</span>
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Lorem ipsum Dolor Sit Amet, Eiusmod Dolor Tempor Incididunt Sed Do Magna Minim Veniam.
+              Dedicated to innovation and quality in every step. Building a sustainable future through trust and excellence.
             </p>
             <div className="flex gap-3">
               <a
@@ -111,15 +111,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-teal-400 flex-shrink-0 mt-1" />
-                <span>Polymer Industries Plot, Dhaka, Bangladesh</span>
+                <span>B,44, Ati Housing Fakir Bari, Siddhirganj, Narayanganj</span>
               </li>
               <li className="flex gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-teal-400 flex-shrink-0 mt-1" />
-                <span>+880 1234-567890</span>
+                <span>01778878903</span>
               </li>
               <li className="flex gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-teal-400 flex-shrink-0 mt-1" />
-                <span>demo@gmail.com</span>
+                <span>osrenterprise2010@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8">
           <p className="text-center text-gray-400 text-sm">
-            Copyright © 2023 Universal Polymer. All rights reserved
+            Copyright ©{(new Date()).getFullYear()} OSR Enterprise. All rights reserved
           </p>
         </div>
       </div>
