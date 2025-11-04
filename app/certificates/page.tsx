@@ -54,7 +54,7 @@ export default function CertificatesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <div className=" bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <Navbar />
 
       <div className="pt-24 pb-20">

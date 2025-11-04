@@ -1,8 +1,11 @@
 export interface Product {
   id: string;
   name: string;
-  description: string;
-  longDescription: string;
+  usingInstruction: string;
+  usingBangla: string;
+  warningEnglish: string;
+  warningBangla: string;
+  
   price: number;
   rating: number;
   reviewCount: number;
@@ -15,93 +18,83 @@ export interface Product {
   };
 }
 
-import img1 from "../public/images/product1.jpg";
-import img1img1 from "../public/images/product2.jpg";
-import img3 from "../public/images/product3.jpg";
 
-export const products: Product[] = [
+export const products: any[] = [
   {
     id: "1",
-    name: "Premium PET Resin Bottles",
-    description: "High-quality bottle grade PET resin perfect for beverage and liquid packaging",
-    longDescription: "Our premium PET resin bottles are manufactured using state-of-the-art technology and eco-friendly processes. These bottles offer excellent clarity, durability, and barrier properties, making them ideal for beverages, water, juices, and other liquid products. Made from 100% recyclable materials, they meet international food safety standards.",
-    price: 100.00,
-    rating: 5,
-    reviewCount: 42,
-    image: '../public/drum1.jpg',
-    category: "PET Bottles",
-    inStock: true,
-    features: [
-      "100% recyclable material",
-      "FDA approved for food contact",
-      "Excellent clarity and transparency",
-      "High impact resistance",
-      "Moisture barrier properties",
-      "Temperature resistant"
-    ],
-    specifications: {
-      material: "PET (Polyethylene Terephthalate)",
-      capacity: "500ml - 2L",
-      weight: "15-45g",
-      color: "Clear/Transparent",
-      closure: "Standard cap compatible",
-      certification: "FDA, ISO 9001:2015"
-    }
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Some drop of “MARKSILL-PLUS” on the spot then rub by hand or soft brush and wash with TARNISH.",
+    usingBangla: "“MARKSILL-PLUS” এর কয়েক ফোঁটা দাগের উপর ফেলুন, হাত বা নরম ব্রাশ দিয়ে ঘষুন এবং TARNISH দিয়ে ধুয়ে ফেলুন।",
+    warningBangla: "যে কোন কাপড়ের উপর ব্যবহার করবেন না যা পানি বা থিনারের দ্বারা ক্ষতিগ্রস্ত হতে পারে। প্রয়োজন হলে রাবার হ্যান্ড গ্লাভস ব্যবহার করুন এবং সাদা ও রঙিন প্রিন্টেড কাপড় আলাদাভাবে ধুয়ে ফেলুন।",
+    warningEnglish: "Do not use on any fabrics that can be damaged by water or thinner. Use rubber hand gloves, if necessary separately wash white & dyed printed clothes.",
+    image: "../public/product1 (1).jpg",
+    category: "PET Bottles"
   },
   {
     id: "2",
-    name: "Industrial Cleaning Solution",
-    description: "Professional-grade cleaning solution for industrial applications",
-    longDescription: "Our industrial cleaning solution is specially formulated for heavy-duty cleaning in manufacturing facilities, chemical plants, and industrial environments. It effectively removes grease, oil, and stubborn stains while being safe for various surfaces.",
-    price: 100.00,
-    rating: 5,
-    reviewCount: 38,
-    image: '../public/drum2.jpg',
-    category: "Chemicals",
-    inStock: true,
-    features: [
-      "Heavy-duty cleaning power",
-      "Biodegradable formula",
-      "Safe for multiple surfaces",
-      "Cost-effective solution",
-      "Pleasant fragrance",
-      "Quick action formula"
-    ],
-    specifications: {
-      type: "Industrial Cleaner",
-      volume: "5L",
-      pH: "7.5-8.5",
-      concentration: "Ready to use",
-      storage: "Cool, dry place",
-      shelfLife: "24 months"
-    }
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Apply few drops of 'MARKSILL-PLUS', gently rub, then rinse thoroughly with clean water.",
+    usingBangla: "‘MARKSILL-PLUS’ এর কয়েক ফোঁটা দিন, আলতোভাবে ঘষুন, তারপর পরিষ্কার পানি দিয়ে ধুয়ে ফেলুন।",
+    warningBangla: "প্লাস্টিকের পৃষ্ঠে দীর্ঘক্ষণ রাখবেন না। প্রয়োজনে গ্লাভস ব্যবহার করুন।",
+    warningEnglish: "Do not leave on plastic surface for long. Use gloves if necessary.",
+    image: "../public/product1 (2).jpg",
+    category: "PET Jars"
   },
   {
     id: "3",
-    name: "Laboratory Grade Chemical",
-    description: "High-purity chemical for research and laboratory applications",
-    longDescription: "This laboratory grade chemical meets the highest purity standards required for scientific research, quality control, and analytical testing. Manufactured under strict quality control procedures to ensure consistency and reliability.",
-    price: 100.00,
-    rating: 5,
-    reviewCount: 29,
-    image: '../public/drum1.jpg',
-    category: "Laboratory",
-    inStock: true,
-    features: [
-      "99.9% purity guaranteed",
-      "Batch tested and certified",
-      "Traceable documentation",
-      "Sealed packaging",
-      "Quality assured",
-      "Research grade"
-    ],
-    specifications: {
-      purity: "≥99.9%",
-      grade: "ACS Reagent",
-      packaging: "Glass bottle",
-      quantity: "500g",
-      storage: "Room temperature",
-      cas: "Available on request"
-    }
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Spray directly on the area, wait 30 seconds, then wipe clean with dry cloth.",
+    usingBangla: "দাগের উপর সরাসরি স্প্রে করুন, ৩০ সেকেন্ড অপেক্ষা করুন, তারপর শুকনো কাপড় দিয়ে মুছে ফেলুন।",
+    warningBangla: "শিশুদের নাগালের বাইরে রাখুন এবং চোখে লাগলে সঙ্গে সঙ্গে পানি দিয়ে ধুয়ে ফেলুন।",
+    warningEnglish: "Keep out of reach of children. If it contacts eyes, rinse immediately with water.",
+    image: "../public/product1 (3).jpg",
+    category: "Cleaning Products"
+  },
+  {
+    id: "4",
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Spray evenly on surface, let sit for 1 minute, and wipe with soft cloth.",
+    usingBangla: "পৃষ্ঠে সমানভাবে স্প্রে করুন, ১ মিনিট অপেক্ষা করুন এবং নরম কাপড় দিয়ে মুছে ফেলুন।",
+    warningBangla: "গরম পৃষ্ঠে ব্যবহার করবেন না। চোখ ও মুখ থেকে দূরে রাখুন।",
+    warningEnglish: "Do not use on hot surfaces. Keep away from eyes and mouth.",
+    image: "../public/product1 (4).jpg",
+    category: "Household Cleaners"
+  },
+  {
+    id: "5",
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Put small amount on sponge, clean the area, then rinse with water.",
+    usingBangla: "স্পঞ্জে অল্প পরিমাণ দিন, দাগ পরিষ্কার করুন এবং পরে পানি দিয়ে ধুয়ে ফেলুন।",
+    warningBangla: "রঙিন প্লাস্টিক বা পালিশ করা পৃষ্ঠে দীর্ঘ সময় রাখবেন না।",
+    warningEnglish: "Avoid leaving on colored or polished plastic surfaces for long time.",
+    image: "../public/product1 (5).jpg",
+    category: "Plastic Care"
+  },
+  {
+    id: "6",
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Apply a few drops directly on stain, rub lightly, then rinse with cold water.",
+    usingBangla: "দাগের উপর কয়েক ফোঁটা দিন, আলতোভাবে ঘষুন এবং ঠান্ডা পানি দিয়ে ধুয়ে ফেলুন।",
+    warningBangla: "রেশম বা উলের কাপড়ে ব্যবহার করবেন না। ব্যবহারের আগে ছোট জায়গায় পরীক্ষা করুন।",
+    warningEnglish: "Do not use on silk or wool fabrics. Test on a small area before use.",
+    image: "../public/product1 (6).jpg",
+    category: "Fabric Care"
+  },
+  {
+    id: "7",
+    name: "মার্কসিল (MARKSIL)",
+    description: "USE FOR MARKER PEN, SILK PAD, BLACK INK, FABRICS FALT, PET BLOT AND WET WASHING SPOT.",
+    usingInstruction: "Spray directly and wipe with microfiber cloth for a glossy finish.",
+    usingBangla: "সরাসরি স্প্রে করুন এবং মাইক্রোফাইবার কাপড় দিয়ে মুছে ফেলুন উজ্জ্বল ফিনিশের জন্য।",
+    warningBangla: "গ্লাস বা স্টিয়ারিং হুইলে ব্যবহার করবেন না। গাড়ির অভ্যন্তরে বায়ু চলাচল নিশ্চিত করুন।",
+    warningEnglish: "Do not use on glass or steering wheel. Ensure proper ventilation inside car.",
+    image: "../public/product1 (7).jpg",
+    category: "Automotive Care"
   }
-];
+]
