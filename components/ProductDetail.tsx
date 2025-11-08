@@ -130,8 +130,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
           </div>
         </div>
       </div>
-
-      <Footer />
+      
     </div>
   );
 }

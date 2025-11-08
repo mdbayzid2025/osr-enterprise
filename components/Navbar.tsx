@@ -26,10 +26,10 @@ export default function Navbar() {
             <Link href="/" className="text-gray-900 hover:text-teal-500 font-medium transition-colors">
               Home
             </Link>
-            <Link href="#about" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
+            <Link href="/#about" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               About
             </Link>
-            <Link href="#products" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
+            <Link href="/products" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Our Products
             </Link>
             <Link href="/certificates" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
@@ -38,7 +38,7 @@ export default function Navbar() {
             {/* <Link href="#gallery" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Gallery
             </Link> */}
-            <Link href="#contact" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
+            <Link href="/#contact" className="text-gray-600 hover:text-teal-500 font-medium transition-colors">
               Contact Us
             </Link>
           </div>

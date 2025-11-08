@@ -6,7 +6,8 @@ export interface Certificate {
   certificateNumber: string;
   type: "license" | "registration" | "tax" | "other";
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
+  docUrl?: string;
 }
 
 export const certificates: Certificate[] = [
@@ -19,7 +20,8 @@ export const certificates: Certificate[] = [
     type: "license",
     description:
       "Official trade license issued by Dhaka City Corporation for conducting business operations in Bangladesh.",
-    imageUrl: "/certificate/cert3.jpeg",
+    // docUrl: "/certificate/BDH Certificate 2021.pdf",
+    imageUrl: "/certificate/cert4.jpeg",
   },
   {
     id: "2",

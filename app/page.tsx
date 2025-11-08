@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import CertificatesCom from "@/components/CertificatesCom";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
@@ -9,8 +10,9 @@ export default function Home() {
       <Hero />
       <About />
       <Products />
+      <CertificatesCom />
       {/* <IndustriesShowcase />
-      <Testimonials /> */}
+      // <Testimonials /> */}
       <Contact />      
     </main>
   );
