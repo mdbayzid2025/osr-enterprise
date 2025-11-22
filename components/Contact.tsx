@@ -25,14 +25,14 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-3 items-center ">
           {/* 🌍 Map Section */}
-          <div className="relative rounded-3xl shadow-lg border border-gray-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456.6814618220055!2d90.51752815913223!3d23.69555854986421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b700331975cb%3A0x4f2b3fbc4ae1bee0!2sShiddirgonj%2C%20Narayanganj!5e0!3m2!1sen!2sbd!4v1761585986897!5m2!1sen!2sbd" width="600" height="530" style={{border: 'none'}} loading="lazy" ></iframe>            
+          <div className="relative order-2 md:order-1  !max-w-[90vw]  shadow-lg border border-gray-100">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456.6814618220055!2d90.51752815913223!3d23.69555854986421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b700331975cb%3A0x4f2b3fbc4ae1bee0!2sShiddirgonj%2C%20Narayanganj!5e0!3m2!1sen!2sbd!4v1761585986897!5m2!1sen!2sbd" width="100%"  height="530" style={{border: 'none'}} loading="lazy" ></iframe>            
           </div>
 
           {/* 📩 Contact Form */}
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
+          <div className="bg-white rounded-3xl p-8 md:p-12 w-full shadow-xl">
             <form className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
