@@ -145,7 +145,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
               </div>
               
               {/* Add a button, since it's common for product detail pages */}
-              <Button className="mt-6 w-full py-6 text-lg bg-blue-600 hover:bg-blue-700 transition-colors duration-300">
+              <Button className="hidden mt-6 w-full py-6 text-lg bg-blue-600 hover:bg-blue-700 transition-colors duration-300">
                 <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
               </Button>
             </div>
