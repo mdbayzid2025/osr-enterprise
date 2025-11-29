@@ -38,7 +38,7 @@ export default function CertificatesCom() {
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {msdsEnglishDocs?.map((certificate, index) => (
+            {msdsEnglishDocs?.map((certificate:any, index) => (
               <div
                 key={certificate.id}
                 className="group bg-black/70 rounded-xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
@@ -90,15 +90,15 @@ export default function CertificatesCom() {
             </div>
 
             <div className="p-2 md:p-6">
-              {selectedCert.document?.endsWith(".pdf") ? (
+              {selectedCert?.document?.endsWith(".pdf") ? (
                 <iframe
-                  src={selectedCert.document}
+                  src={selectedCert?.document}
                   className="w-full h-[80vh] rounded-xl border"
                 />
               ) : (
                 <div className="relative aspect-[3/4]">
                   <Image
-                    src={selectedCert.image || "/certificate/placeholder.jpg"}
+                    src={selectedCert?.image || "/certificate/placeholder.jpg"}
                     alt="certificate"
                     fill
                     className="object-contain"
