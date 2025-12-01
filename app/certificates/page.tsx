@@ -79,10 +79,21 @@ export default function Certificate() {
               >
                 <div className="relative aspect-[3/4] bg-gray-100">
                   {certificate?.document?.endsWith(".pdf") ? (
-                    <iframe
-                      src={`${certificate?.document}#toolbar=0`}
-                      className="w-full h-full border-none"
+                    // <iframe
+                    //   src={`${certificate?.document}#toolbar=0`}
+                    //   className="w-full h-full border-none"
+                    // />
+
+                     <embed
+
+                      src={certificate?.document}
+
+                      type="application/pdf"
+
+                      className="w-full min-h-[70vh]"
+
                     />
+                    
                   ) : (
                     <Image
                       src={certificate?.image || "/certificate/placeholder.jpg"}
@@ -139,10 +150,19 @@ export default function Certificate() {
                 /> */}
             <div className="p-6">
               {selectedCert?.document?.endsWith(".pdf") ? (
-                <iframe
-                  src={`${selectedCert?.document}#toolbar=0&view=FitH`}
-                  className="w-full h-[80vh] rounded-xl border"
-                />
+                // <iframe
+                //   src={`${selectedCert?.document}#toolbar=0&view=FitH`}
+                //   className="w-full h-[80vh] rounded-xl border"
+                // />
+                 <embed
+
+                      src={selectedCert?.document}
+
+                      type="application/pdf"
+
+                      className="w-full min-h-[70vh]"
+
+                    />
               ) : (
                 <div className="relative aspect-[3/4]">
                   <Image

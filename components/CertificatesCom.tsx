@@ -38,7 +38,7 @@ export default function CertificatesCom() {
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {msdsEnglishDocs?.map((certificate:any, index) => (
+            {msdsEnglishDocs?.map((certificate: any, index) => (
               <div
                 key={certificate.id}
                 className="group bg-black/70 rounded-xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
@@ -47,10 +47,20 @@ export default function CertificatesCom() {
               >
                 <div className="relative aspect-[3/4] bg-black/50">
                   {certificate.document?.endsWith(".pdf") ? (
-                    <iframe
-                      src={`${certificate.document}#toolbar=0&view=FitH`}
-                      className="w-full h-full"
+                    // <iframe
+                    //   src={`${certificate.document}#toolbar=0&view=FitH`}
+                    //   className="w-full h-full"
+                    // />
+                    <embed
+
+                      src={certificate.document}
+
+                      type="application/pdf"
+
+                      className="w-full min-h-[70vh]"
+
                     />
+
                   ) : (
                     <Image
                       src={certificate.image || "/certificate/placeholder.jpg"}
