@@ -48,7 +48,7 @@ export default function CertificatesCom() {
                 <div className="relative aspect-[3/4] bg-black/50">
                   {certificate.document?.endsWith(".pdf") ? (
                     <iframe
-                      src={certificate.document}
+                      src={`${certificate.document}#toolbar=0&view=FitH`}
                       className="w-full h-full"
                     />
                   ) : (

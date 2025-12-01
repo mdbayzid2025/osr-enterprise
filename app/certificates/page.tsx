@@ -140,7 +140,7 @@ export default function Certificate() {
             <div className="p-6">
               {selectedCert?.document?.endsWith(".pdf") ? (
                 <iframe
-                  src={`${selectedCert?.document}`}
+                  src={`${selectedCert?.document}#toolbar=0&view=FitH`}
                   className="w-full h-[80vh] rounded-xl border"
                 />
               ) : (
