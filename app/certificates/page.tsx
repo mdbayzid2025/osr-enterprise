@@ -3,34 +3,58 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import clsx from "clsx";
+import dynamic from "next/dynamic";
+
+const PdfViewer = dynamic(
+  () => import("@/components/PdfViewer"),
+  { ssr: false }
+);
+
 import { msdsBanglaDocs, msdsEnglishDocs } from "@/lib/certificates";
 
 type Language = "english" | "bangla";
+
 type Certificate = {
- id?: string;
+  id?: string;
   title?: string;
   document?: string;
   image?: string;
 };
 
-
-
 export default function Certificate() {
+<<<<<<< HEAD
   const [language, setLanguage] = useState<Language>("english");  
 
   const activeCertificates = language === "english" ? msdsEnglishDocs : msdsBanglaDocs;
+=======
+  const [language, setLanguage] = useState<Language>("english");
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
+  const activeCertificates =
+    language === "english" ? msdsEnglishDocs : msdsBanglaDocs;
+
+  // ESC close
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedCert(null);
+    };
+    window?.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
+>>>>>>> 4c6bee496ab03bd5a1806234d74e8ba7ad967cab
 
   return (
     <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <Navbar />
 
+      {/* CONTENT */}
       <div className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4">
+
           <h1 className="text-2xl md:text-4xl font-bold text-center mb-10">
             Licenses & Certificates
           </h1>
@@ -55,16 +79,15 @@ export default function Certificate() {
             ))}
           </div>
 
-          {/* Certificate Grid */}
+          {/* GRID */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeCertificates?.map((certificate, index) => (
+            {activeCertificates && activeCertificates?.map((certificate, index) => (
               <div
                 key={certificate?.id}                
                 className="group bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
-                style={{
-                  animation: `slideUp 0.5s ease-out ${index * 0.08}s both`,
-                }}
+                style={{ animation: `slideUp 0.5s ease-out ${index * 0.08}s both` }}
               >
+<<<<<<< HEAD
                  <div className="relative aspect-[3/4] bg-gray-100">                 
                     <Image
                       src={certificate?.thumbnail || "/certificate/placeholder.jpg"}
@@ -72,8 +95,18 @@ export default function Certificate() {
                       fill
                       className="object-cover group-hover:scale-105 transition"
                     />
+=======
+                <div className="relative aspect-[3/4] bg-gray-100">
+                  <Image
+                    src={certificate?.image || "/certificate/pdf-placeholder.jpg"}
+                    alt="Certificate"
+                    fill
+                    className="object-cover"
+                  />
+>>>>>>> 4c6bee496ab03bd5a1806234d74e8ba7ad967cab
                 </div>
                   
+
 
                 <div className="p-6">
                   <a href={certificate?.document} target="_black"><Button className="w-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white">
@@ -84,16 +117,59 @@ export default function Certificate() {
             ))}
           </div>
 
-          {activeCertificates?.length === 0 && (
+          {activeCertificates.length === 0 && (
             <p className="text-center text-gray-500 py-20">
               No certificates available.
             </p>
           )}
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+      {/* ✅ MODAL */}
+      {selectedCert && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* HEADER */}
+            <div className="flex justify-between items-center px-6 py-4 border-b">
+              <h2 className="text-lg font-bold">
+                {selectedCert.title || "Document Preview"}
+              </h2>
+              <Button variant="ghost" size="icon" onClick={() => setSelectedCert(null)}>
+                <X />
+              </Button>
+            </div>
+
+            {/* BODY */}
+            <div className="p-6 h-[80vh] overflow-auto space-y-4">
+
+              {/* ✅ PDF VIEW */}
+              {selectedCert?.document?.endsWith(".pdf") ? (
+                <PdfViewer fileUrl={selectedCert.document} />
+              ) : (
+                <Image
+                  src={selectedCert?.image || "/certificate/placeholder.jpg"}
+                  fill
+                  alt="certificate"
+                  className="object-contain"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+>>>>>>> 4c6bee496ab03bd5a1806234d74e8ba7ad967cab
       <Footer />
 
-      {/* Animations */}
+      {/* Animation */}
       <style jsx global>{`
         @keyframes slideUp {
           from {

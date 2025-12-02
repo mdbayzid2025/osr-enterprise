@@ -6,12 +6,15 @@ import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import Image from "next/image";
+import RelatedProducts from "./RelatedProducts";
 
 // Add a type definition for clarity, even if products is imported as 'any[]'
-interface Product {
+export interface Product {
   id: number;
   Product_Name: string;
   image: any; // Assuming 'img1' is imported here
+  badge: any; // Assuming 'img1' is imported here
   Price: string;
   Weight: string;
   Category: string;
@@ -28,7 +31,7 @@ interface Product {
 
 export default function ProductDetail({ productId }: { productId: string }) {
   // Find the product by converting productId string to number
-  const product = products.find((p: Product) => p?.id?.toString() === productId) as Product | undefined;
+  const product = products.find((p: Product) => p?.id?.toString() === productId);
   
   // Fallback if product is not found (using products[0] is dangerous if products is empty)
   if (!product) {
@@ -46,7 +49,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
   // const [selectedTab, setSelectedTab] = useState("description");
 
   // Filter related products and slice to 4. Ensure comparison is between the same type (number vs number)
-  const relatedProducts = products.filter((p: Product) => p.id !== product.id).slice(0, 4) as Product[];
+  const relatedProducts = products.filter((p: Product) => p.id !== product.id).slice(1, 10) as Product[];
 
   // 🖱️ Zoom state
   const [zoom, setZoom] = useState(false);
@@ -64,7 +67,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
     <div className="min-h-screen bg-gray-50">      
 
       <div className="pt-28 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
           {/* Product Section */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* 🖼️ Image with Zoom */}
@@ -78,8 +81,10 @@ export default function ProductDetail({ productId }: { productId: string }) {
                   onMouseLeave={() => setZoom(false)}
                   onMouseMove={handleMouseMove}
                 >
-                  <img
-                    src="/product1 (1).jpg"
+                  <Image
+                  width={450}
+                  height={350}
+                    src={product?.image}
                     alt={product.Product_Name} // Use Product_Name
                     className={`object-contain w-full h-full transition-transform duration-300 ${zoom ? "scale-150 cursor-zoom-out" : "scale-100"
                       }`}
@@ -92,6 +97,9 @@ export default function ProductDetail({ productId }: { productId: string }) {
                     }
                   />
                 </div>
+              </div>
+              <div className="">
+                <Image src={product?.badge} width={400} height={300} className="w-2/3 h-[200px mx-auto mt-5" alt="badge"/>
               </div>
             </div>
 
@@ -152,33 +160,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
           </div>
 
           {/* Related Products */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Related Products
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 nd:gap-4 gap-6">
-              {relatedProducts.map((related: Product) => (
-                <Link
-                  key={related.id}
-                  href={`/products/${related.id}`}
-                  className="bg-gray-100 overflow-hidden shadow-sm hover:shadow-sm transition-all duration-300 group"
-                >
-                  <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
-                    <img
-                      src="/product1 (1).jpg"
-                      alt={related.Product_Name} // Use Product_Name
-                      className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-xl text-center font-bold text-gray-900">
-                      {related.Product_Name} {/* Use Product_Name */}
-                    </h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+            <RelatedProducts relatedProducts={relatedProducts}/>
         </div>
       </div>      
     </div>
