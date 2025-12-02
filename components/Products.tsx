@@ -25,7 +25,7 @@ export default function Products() {
             <Link
               key={product.id}
               href={`/products/${product.id.toString()}`}
-              className="bg-gray-200 pb-3 relative rounded-md overflow-hidden  hover:shadow-sm transition-all duration-300 group cursor-pointer"
+              className=" pb-3 relative rounded-md overflow-hidden  hover:shadow-sm transition-all duration-300 group cursor-pointer"
             >
               <div className="relative aspect-square  flex items-center justify-center text-8xl p-8  transition-transform duration-300">
                 {/* {product?.image} */}

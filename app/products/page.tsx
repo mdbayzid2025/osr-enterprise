@@ -11,7 +11,7 @@ const page = () => {
                 {/* // 🚨 CORRECTION: products array now uses 'id' and 'Product_Name'. 
                   // It is assumed the `products` import from '@/lib/products' contains the JSON array we finalized.
                 */}
-                {products.map((product) => (
+                {products?.map((product) => (
                     <Link
                         // Use product?.id from the finalized JSON structure
                         key={product?.id}
@@ -19,10 +19,10 @@ const page = () => {
                         className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
                     >
                         {/* Image Section */}
-                        <div className="relative aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <div className="relative aspect-square  flex items-center justify-center overflow-hidden">
                             {/* Assuming a static placeholder image for now */}
                             <img
-                                src="/product1 (1).jpg"
+                                src={product?.image}
                                 // Use product?.Product_Name from the finalized JSON structure for alt text
                                 alt={product?.Product_Name}
                                 className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-500 ease-in-out"
