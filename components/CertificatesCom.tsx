@@ -41,8 +41,7 @@ export default function CertificatesCom() {
             {msdsEnglishDocs?.map((certificate: any, index) => (
               <div
                 key={certificate.id}
-                className="group  rounded-xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
-                style={{ animation: `slideUp 0.6s ease-out ${index * 0.1}s both` }}
+                className="group  rounded-xl overflow-hidden hover:shadow-lg border cursor-pointer hover:-translate-y-2 transition"                
                 onClick={() => setSelectedCert(certificate)}
               >
                 <div className="relative aspect-[3/4] bg-black/50">
@@ -50,11 +49,11 @@ export default function CertificatesCom() {
                     src={certificate?.thumbnail || "/certificate/placeholder.jpg"}
                     alt={certificate?.title || "Certificate"}
                     fill
-                    className="object-cover group-hover:scale-105 transition"
+                    className="object-cover  transition"
                   />
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 bg-slate-200">
                   <a href={certificate?.document} target="_black"><Button className="w-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white">
                     Preview
                   </Button></a>
