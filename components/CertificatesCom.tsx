@@ -3,8 +3,9 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { msdsEnglishDocs } from "@/lib/certificates";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Certificate = {
@@ -38,7 +39,7 @@ export default function CertificatesCom() {
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {msdsEnglishDocs?.map((certificate: any, index) => (
+            {msdsEnglishDocs?.slice(0, 6).map((certificate: any, index) => (
               <div
                 key={certificate.id}
                 className="group  rounded-xl overflow-hidden hover:shadow-lg border cursor-pointer hover:-translate-y-2 transition"                
@@ -61,6 +62,13 @@ export default function CertificatesCom() {
               </div>
             ))}
           </div>
+
+           <div className="text-center mt-10">
+          <Link href="/certificates"><Button className="bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg group">
+            View All
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button></Link>
+        </div>
         </div>
       </div>   
     </div>
