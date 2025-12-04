@@ -3,8 +3,9 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { msdsEnglishDocs } from "@/lib/certificates";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Certificate = {
@@ -38,87 +39,38 @@ export default function CertificatesCom() {
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {msdsEnglishDocs?.map((certificate: any, index) => (
+            {msdsEnglishDocs?.slice(0, 6).map((certificate: any, index) => (
               <div
                 key={certificate.id}
-                className="group bg-black/70 rounded-xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
-                style={{ animation: `slideUp 0.6s ease-out ${index * 0.1}s both` }}
+                className="group  rounded-xl overflow-hidden hover:shadow-lg border cursor-pointer hover:-translate-y-2 transition"                
                 onClick={() => setSelectedCert(certificate)}
               >
                 <div className="relative aspect-[3/4] bg-black/50">
-                  {certificate.document?.endsWith(".pdf") ? (
-                    // <iframe
-                    //   src={`${certificate.document}#toolbar=0&view=FitH`}
-                    //   className="w-full h-full"
-                    // />
-                    <embed
-
-                      src={certificate.document}
-
-                      type="application/pdf"
-
-                      className="w-full min-h-[70vh]"
-
-                    />
-
-                  ) : (
-                    <Image
-                      src={certificate.image || "/certificate/placeholder.jpg"}
-                      alt={certificate.title || "Certificate"}
-                      fill
-                      className="object-cover group-hover:scale-105 transition"
-                    />
-                  )}
+                  <Image
+                    src={certificate?.thumbnail || "/certificate/placeholder.jpg"}
+                    alt={certificate?.title || "Certificate"}
+                    fill
+                    className="object-cover  transition"
+                  />
                 </div>
 
-                <div className="p-6">
-                  <Button className="w-full rounded-full">
+                <div className="p-6 bg-slate-200">
+                  <a href={certificate?.document} target="_black"><Button className="w-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white">
                     Preview
-                  </Button>
+                  </Button></a>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </div>
 
-      {/* Modal */}
-      {selectedCert && (
-        <div
-          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedCert(null)}
-        >
-          <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center px-2 md:px-6 py-4 border-b">
-              <h2 className="text-xl font-bold">Document Preview</h2>
-              <Button variant="ghost" size="icon" onClick={() => setSelectedCert(null)}>
-                <X />
-              </Button>
-            </div>
-
-            <div className="p-2 md:p-6">
-              {selectedCert?.document?.endsWith(".pdf") ? (
-                <iframe
-                  src={selectedCert?.document}
-                  className="w-full h-[80vh] rounded-xl border"
-                />
-              ) : (
-                <div className="relative aspect-[3/4]">
-                  <Image
-                    src={selectedCert?.image || "/certificate/placeholder.jpg"}
-                    alt="certificate"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              )}
-            </div>
-          </div>
+           <div className="text-center mt-10">
+          <Link href="/certificates"><Button className="bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-white rounded-full px-8 py-6 text-lg group">
+            View All
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button></Link>
         </div>
-      )}
+        </div>
+      </div>   
     </div>
   );
 }

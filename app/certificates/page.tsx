@@ -26,20 +26,9 @@ type Certificate = {
 };
 
 export default function Certificate() {
-  const [language, setLanguage] = useState<Language>("english");
-  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
-  const activeCertificates =
-    language === "english" ? msdsEnglishDocs : msdsBanglaDocs;
+  const [language, setLanguage] = useState<Language>("english");  
 
-  // ESC close
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedCert(null);
-    };
-    window?.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
-
+  const activeCertificates = language === "english" ? msdsEnglishDocs : msdsBanglaDocs;
 
   return (
     <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -59,8 +48,7 @@ export default function Certificate() {
               <button
                 key={lang}
                 onClick={() => {
-                  setLanguage(lang);
-                  setSelectedCert(null);
+                  setLanguage(lang);                  
                 }}
                 className={clsx(
                   "px-6 py-2 rounded-full text-sm font-semibold transition",
@@ -78,25 +66,25 @@ export default function Certificate() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activeCertificates && activeCertificates?.map((certificate, index) => (
               <div
-                key={certificate?.id}
-                onClick={() => setSelectedCert(certificate)}
-                className="group bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer hover:-translate-y-2 transition"
+                key={certificate?.id}                
+                className="group bg-white rounded-3xl overflow-hidden border hover:shadow-lg cursor-pointer hover:-translate-y-2 transition"
                 style={{ animation: `slideUp 0.5s ease-out ${index * 0.08}s both` }}
               >
-                <div className="relative aspect-[3/4] bg-gray-100">
-                  <Image
-                    src={certificate?.image || "/certificate/pdf-placeholder.jpg"}
-                    alt="Certificate"
-                    fill
-                    className="object-cover"
-                  />
+                 <div className="relative aspect-[3/4] bg-gray-100">                 
+                    <Image
+                      src={certificate?.thumbnail || "/certificate/placeholder.jpg"}
+                      alt={certificate?.title || "Certificate"}
+                      fill
+                      className="object-cover  transition"
+                    />
                 </div>
+                  
 
 
-                <div className="p-6">
-                  <Button className="w-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white">
+                <div className="p-6 bg-slate-200">
+                  <a href={certificate?.document} target="_black"><Button className="w-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white">
                     Preview
-                  </Button>
+                  </Button></a>
                 </div>
               </div>
             ))}
@@ -109,46 +97,6 @@ export default function Certificate() {
           )}
         </div>
       </div>
-
-      {/* ✅ MODAL */}
-      {selectedCert && (
-        <div
-          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedCert(null)}
-        >
-          <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* HEADER */}
-            <div className="flex justify-between items-center px-6 py-4 border-b">
-              <h2 className="text-lg font-bold">
-                {selectedCert.title || "Document Preview"}
-              </h2>
-              <Button variant="ghost" size="icon" onClick={() => setSelectedCert(null)}>
-                <X />
-              </Button>
-            </div>
-
-            {/* BODY */}
-            <div className="p-6 h-[80vh] overflow-auto space-y-4">
-
-              {/* ✅ PDF VIEW */}
-              {selectedCert?.document?.endsWith(".pdf") ? (
-                <PdfViewer fileUrl={selectedCert.document} />
-              ) : (
-                <Image
-                  src={selectedCert?.image || "/certificate/placeholder.jpg"}
-                  fill
-                  alt="certificate"
-                  className="object-contain"
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
       <Footer />
 
       {/* Animation */}
