@@ -109,7 +109,7 @@ export default function ProductDetail({ productId }: { productId: string }) {
                 {product.Product_Name} {/* Use Product_Name */}
               </h1>
 
-              <p className="text-blue-700 text-2xl font-semibold leading-relaxed mb-6 text-justify">
+              <p className="text-blue-700 text-xl font-semibold leading-relaxed mb-6 text-justify">
                 {product.Description} {/* Use Description */}
               </p>
 
